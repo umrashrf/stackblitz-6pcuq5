@@ -40,8 +40,12 @@ export class CodeComponent  {
           } 
         })
         .subscribe(
-          res => { this.output = res as string; },
-          err => { this.output = err.error.text; },
+          (res: any) => { 
+            this.output = res.response as string; 
+          },
+          (err: any) => { 
+            this.output = err.error.text; 
+          },
         )
     }
   }
