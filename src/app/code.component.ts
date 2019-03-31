@@ -34,9 +34,16 @@ export class CodeComponent  {
     this.output = '';
     if (this.code) {
       this.httpClient
-        .get(HTTP_URL)
+        .get(HTTP_URL, {
+          params: {
+            code: this.code
+          } 
+        })
         .subscribe(
-          res => { this.output = res as string; },
+          res => { 
+            console.log(res);
+            this.output = res as string; 
+          },
           err => { this.output = err.error.text; },
         )
     }
