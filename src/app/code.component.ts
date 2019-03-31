@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const HTTP_URL = 'http://umrashrf89.pythonanywhere.com/'
+const HTTP_URL = 'https://umrashrf89.pythonanywhere.com/'
 
 @Component({
   selector: 'code',
