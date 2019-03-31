@@ -14,7 +14,12 @@ const HTTP_URL = 'https://umrashrf89.pythonanywhere.com/'
       [(ngModel)]=code>
     </textarea>
     <p><button (click)="send()">Send information to API</button></p>
-    <textarea rows=5 cols=30 value="{{output}}"></textarea>
+    <textarea 
+      rows=5 
+      cols=30
+      readonly
+      value="{{output}}">
+    </textarea>
   `,
   styles: [`h1 { font-family: Lato; }`]
 })
@@ -29,9 +34,10 @@ export class CodeComponent  {
     if (this.code) {
       this.httpClient
         .get(HTTP_URL)
-        .subscribe((res)=>{
-            alert(res);
-        });
+        .subscribe(
+          res => { this.output = res as string; },
+          err => { this.output = err.error.text; },
+        )
     }
   }
 }
