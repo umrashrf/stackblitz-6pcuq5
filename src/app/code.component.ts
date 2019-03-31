@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 const HTTP_URL = 'https://umrashrf89.pythonanywhere.com/'
@@ -25,12 +25,13 @@ const HTTP_URL = 'https://umrashrf89.pythonanywhere.com/'
 })
 export class CodeComponent  {
   @Input() code: string;
-  output: string;
+  @Output() output: string;
 
   constructor(private httpClient: HttpClient) {
   }
 
   send = () => {
+    this.output = '';
     if (this.code) {
       this.httpClient
         .get(HTTP_URL)
