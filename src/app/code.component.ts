@@ -40,10 +40,7 @@ export class CodeComponent  {
           } 
         })
         .subscribe(
-          res => { 
-            console.log(res);
-            this.output = res as string; 
-          },
+          res => { this.output = res as string; },
           err => { this.output = err.error.text; },
         )
     }
